@@ -1,9 +1,7 @@
-
 version: 2
 
 models:
   - name: restaurant_division_info_view
-    description: "Restaurant Informations"
     columns:
       - name: client_id
         tests:
@@ -11,24 +9,17 @@ models:
       - name: name
         tests:
           - not_null
-      - name: latitude
-        tests:
-          - dbt_utils.acccepted_range:
-              min_value : -90
-              max_value : 90
-              inclusive : true
-      - name: longitude
-        tests:
-          - dbt_utils.acccepted_range:
-              min_value : -180
-              max_value : 180
-              inclusive : true
 
-  - name : age_of_restro_after_registration
+    
+  - name: restaurant_info
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: ref('restaurant_info_raw')
+
+  - name : age_view
     columns:
     - name : age
       tests:
         - not_null
         
-          
-
+  
