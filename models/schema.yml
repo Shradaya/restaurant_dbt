@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: restaurant_division_info_view
+  - name: restaurant_division
     columns:
       - name: client_id
         tests:
@@ -9,17 +9,6 @@ models:
       - name: name
         tests:
           - not_null
-
-    
-  - name: restaurant_info
     tests:
       - dbt_utils.equal_rowcount:
-          compare_model: ref('restaurant_info_raw')
-
-  - name : age_view
-    columns:
-    - name : age
-      tests:
-        - not_null
-        
-  
+          compare_model: dev.restaurant_division_age
