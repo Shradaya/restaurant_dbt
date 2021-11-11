@@ -1,8 +1,8 @@
  ## The file structure of this repo:
 ```
-data/             # Folder containing the datasets in different formats.
+data/             
   *.csv
-macros/          # Folder containing different DDL sql queries.
+macros/         
   *.sql    
 models/
   dbt_table/
@@ -178,3 +178,4 @@ Tests whether the added date is smaller than the updated date or not.
 ```
 SELECT * FROM restaurant_info ri  WHERE dateadded > dateupdated
 ```
+
